@@ -5,17 +5,17 @@ import rivoMascot from '../assets/images/rivo_mascot.jpg';
 
 const TOUR_STEPS = [
   {
-    target: '[href="/"]',
+    target: 'a[href$="/"], a[href$="/revo1/"], a[href$="/revo1"], [href="/"]',
     title: "Welcome to Reservo! 🌴",
     content: "Discover verified luxury retreats, overwater villas, and nature sanctuaries around the world."
   },
   {
-    target: '[href="/ai-planner"]',
+    target: '[href*="ai-planner"]',
     title: "✨ Rivo AI Trip Planner",
     content: "Ask Rivo to draft your next custom vacation itinerary in seconds."
   },
   {
-    target: '[href="/wishlist"]',
+    target: '[href*="wishlist"]',
     title: "❤️ Curated Wishlists",
     content: "Keep track of your favorite luxury suites and book them instantly."
   },

@@ -52,7 +52,8 @@ async function request(endpoint, options = {}) {
     secureStorage.removeItem(TOKEN_KEY);
     secureStorage.removeItem("reservo_user");
     if (!window.location.pathname.includes("/login")) {
-      window.location.href = "/login?expired=true";
+      const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+      window.location.href = `${base}/login?expired=true`;
     }
     throw new Error("Session expired. Please log in again.");
   }
