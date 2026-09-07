@@ -1,0 +1,42 @@
+﻿# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.env
+serviceAccountKey*.json
+!serviceAccountKey.json.example
+*.pem
+*.key
+
+# Dependencies
+node_modules/
+backend/target/
+frontend/node_modules/
+frontend/dist/
+dist/
+
+# Uploads & Runtime files
+backend/uploads/
+uploads/
+*.log
+logs/
+
+# IDE & Editor files
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Build outputs
+build/
+.maven-cache/

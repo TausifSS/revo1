@@ -1,0 +1,12 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Exclude private dashboard pages from search indexing
+Disallow: /dashboard
+Disallow: /bookings
+Disallow: /profile
+Disallow: /settings
+Disallow: /admin/
+
+Sitemap: https://reservo-luxury-booking.in/sitemap.xml

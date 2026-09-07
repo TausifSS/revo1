@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run Reservo Backend",
+      "request": "launch",
+      "mainClass": "com.reservo.backend.BackendApplication",
+      "projectName": "backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "env": {
+        "SPRING_DATASOURCE_URL": "jdbc:h2:mem:reservodb;DB_CLOSE_DELAY=-1;MODE=MySQL",
+        "SPRING_DATASOURCE_DRIVER_CLASS_NAME": "org.h2.Driver",
+        "SPRING_DATASOURCE_USERNAME": "sa",
+        "SPRING_DATASOURCE_PASSWORD": "reservo_secure_h2_pass",
+        "SPRING_JPA_DATABASE_PLATFORM": "org.hibernate.dialect.H2Dialect"
+      }
+    }
+  ]
+}

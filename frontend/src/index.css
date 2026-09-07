@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark-theme, .dark-theme *, .dark, .dark *));
+
+@theme {
+  --color-primary: #0D47A1;
+  --color-primary-dark: #083A85;
+  --color-gold: #4DA3FF;
+  --color-gold-dark: #083A85;
+  --color-accent-teal: #8FD3FF;
+  --color-success: #22C55E;
+  --color-reservo-blue: #2563eb;
+
+  --color-bg-light: #FAFCFF;
+  --color-bg-white: #ffffff;
+
+  --color-text-dark: #0A2342;
+  --color-text-gray: #4A5D73;
+  --color-border-color: #E7EEF8;
+  --shadow-custom: 0 12px 36px rgba(10, 35, 66, 0.06);
+}
+
+
+body.dark-theme {
+  --color-primary: #4DA3FF;
+  --color-primary-dark: #1B6EDC;
+  --color-gold: #82D6FF;
+  --color-gold-dark: #1B6EDC;
+  --color-bg-light: #0A1120;
+  --color-bg-white: #111A2E;
+  --color-text-dark: #F1F6FF;
+  --color-text-gray: #A3B8D9;
+  --color-border-color: #1E2A44;
+  --shadow-custom: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility fade-in {
+  animation: fadeUp 0.3s ease forwards;
+}
+
+@utility navbar-transition {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-border-color);
+  opacity: 0.85;
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0.3) 60%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: shimmer-anim 1.5s infinite;
+    content: '';
+  }
+}
+
+@keyframes shimmer-anim {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-rivo {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02) rotate(1.5deg);
+  }
+}
+
+@utility animate-bounce-rivo {
+  animation: bounce-rivo 4s ease-in-out infinite;
+}
+
+@keyframes float-rivo {
+  0%, 100% {
+    transform: translateY(0.5px) scale(1.05);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.07);
+  }
+}
+
+@keyframes wave-rivo {
+  0%, 100% {
+    transform: rotate(0deg) scale(1.22) translateY(-4px);
+  }
+  25% {
+    transform: rotate(-3deg) scale(1.22) translateY(-4px);
+  }
+  75% {
+    transform: rotate(3deg) scale(1.22) translateY(-4px);
+  }
+}
+
+@utility animate-float-rivo {
+  animation: float-rivo 3s ease-in-out infinite;
+}
+
+@utility animate-wave-rivo {
+  animation: wave-rivo 0.75s ease-in-out infinite;
+}
+
+body {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+*:focus-visible:not(input):not(textarea):not(select) {
+  outline: 3px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: none !important;
+  border-color: var(--color-primary) !important;
+}
+
+
+@keyframes feedbackPopup {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-feedback-popup {
+  animation: feedbackPopup 0.7s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+/* Autofill browser input styling overrides for light and dark themes */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-text-dark) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-bg-light) inset !important;
+  box-shadow: 0 0 0px 1000px var(--color-bg-light) inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  caret-color: var(--color-text-dark) !important;
+}
+
+body.dark-theme input:-webkit-autofill,
+body.dark-theme input:-webkit-autofill:hover, 
+body.dark-theme input:-webkit-autofill:focus, 
+body.dark-theme input:-webkit-autofill:active,
+body.dark-theme textarea:-webkit-autofill,
+body.dark-theme textarea:-webkit-autofill:hover,
+body.dark-theme textarea:-webkit-autofill:focus,
+body.dark-theme textarea:-webkit-autofill:active,
+body.dark-theme select:-webkit-autofill,
+body.dark-theme select:-webkit-autofill:hover,
+body.dark-theme select:-webkit-autofill:focus,
+body.dark-theme select:-webkit-autofill:active {
+  -webkit-text-fill-color: #F1F6FF !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0A1120 inset !important;
+  box-shadow: 0 0 0px 1000px #0A1120 inset !important;
+  caret-color: #F1F6FF !important;
+}
+
+/* Remove default browser white spin buttons from number inputs for dark mode compatibility */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
