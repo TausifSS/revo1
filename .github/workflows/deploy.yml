@@ -33,6 +33,12 @@ jobs:
           BASE_URL: /revo1/
           NODE_ENV: production
           VITE_API_URL: https://reservobd.onrender.com
+          VITE_FIREBASE_API_KEY: AIzaSyDl8_aAH-EoL7mOnLpHQYE0maIW8lpW4LI
+          VITE_FIREBASE_AUTH_DOMAIN: reservo-de8ec.firebaseapp.com
+          VITE_FIREBASE_PROJECT_ID: reservo-de8ec
+          VITE_FIREBASE_STORAGE_BUCKET: reservo-de8ec.firebasestorage.app
+          VITE_FIREBASE_MESSAGING_SENDER_ID: "452998198059"
+          VITE_FIREBASE_APP_ID: 1:452998198059:web:116c7ed562568d2dbb0b6e
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
