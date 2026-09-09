@@ -1,6 +1,6 @@
 import { secureStorage } from "./secureStorage";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const API_BASE_URL = (import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "https://reservobd.onrender.com" : "http://localhost:8080")).replace(/\/$/, "");
 const TOKEN_KEY = "reservo_auth_token";
 
 async function request(endpoint, options = {}) {

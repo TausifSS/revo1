@@ -1,6 +1,6 @@
 import { apiClient } from "./apiClient";
 
-const BACKEND_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const BACKEND_URL = (import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "https://reservobd.onrender.com" : "http://localhost:8080")).replace(/\/$/, "");
 
 export const oauth2Service = {
   // Check if OAuth2 is enabled on the backend
