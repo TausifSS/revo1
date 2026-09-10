@@ -31,7 +31,8 @@ async function request(endpoint, options = {}) {
   }
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  // Allow up to 60s for backend cold-starts on Render free tier
+  const timeoutId = setTimeout(() => controller.abort(), 60000);
   config.signal = controller.signal;
 
   let response;

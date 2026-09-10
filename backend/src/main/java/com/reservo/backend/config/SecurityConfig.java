@@ -464,17 +464,25 @@ public class SecurityConfig {
                                                 "blob: " +
                                                 "http://localhost:8080 " +
                                                 "http://localhost:5173 " +
-                                                "https://images.unsplash.com; " +
+                                                "https://reservobd.onrender.com " +
+                                                "https://tausifss.github.io " +
+                                                "https://images.unsplash.com " +
+                                                "https://firebasestorage.googleapis.com; " +
 
                                                 "media-src 'self' " +
                                                 "blob: " +
                                                 "http://localhost:8080 " +
+                                                "https://reservobd.onrender.com " +
                                                 "https://player.vimeo.com " +
                                                 "https://*.vimeo.com; " +
 
                                                 "connect-src 'self' " +
                                                 "http://localhost:8080 " +
-                                                "http://localhost:5173; " +
+                                                "http://localhost:5173 " +
+                                                "https://reservobd.onrender.com " +
+                                                "https://tausifss.github.io " +
+                                                "https://identitytoolkit.googleapis.com " +
+                                                "https://securetoken.googleapis.com; " +
 
                                                 "frame-ancestors 'none';"
                                         )
