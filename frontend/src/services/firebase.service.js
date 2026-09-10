@@ -116,7 +116,8 @@ class FirebasePhoneAuthService {
       } else if (error.code === 'auth/app-not-authorized') {
         errorMessage = 'Firebase app not authorized. Please check your Firebase project settings.';
       } else if (error.code === 'auth/unauthorized-domain') {
-        errorMessage = 'This domain is not authorized in Firebase. Please add localhost to your Firebase authorized domains.';
+        const domain = typeof window !== 'undefined' ? window.location.hostname : 'this domain';
+        errorMessage = `Domain '${domain}' is not authorized in Firebase. Please add '${domain}' to Firebase Console -> Authentication -> Settings -> Authorized domains.`;
       } else if (error.code === 'auth/billing-not-enabled') {
         errorMessage = 'Firebase billing is not enabled. Please enable billing in Firebase Console to use phone authentication.';
       } else {
@@ -215,6 +216,10 @@ class FirebasePhoneAuthService {
       };
     } catch (error) {
       console.error('Google sign-in error:', error);
+      if (error.code === 'auth/unauthorized-domain') {
+        const domain = typeof window !== 'undefined' ? window.location.hostname : 'your domain';
+        throw new Error(`Domain '${domain}' is not authorized in Firebase. Please add '${domain}' to Firebase Console -> Authentication -> Settings -> Authorized domains.`);
+      }
       throw error; // Throw the original error so auth.service.js can handle it
     }
   }
